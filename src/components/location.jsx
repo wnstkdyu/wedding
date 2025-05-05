@@ -47,8 +47,8 @@ const Location = () => {
   const executeScript = () => {
     const scriptTag = document.createElement("script");
     const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
-    "timestamp" : "1652464367301",
-    "key" : "2a8fe",
+    "timestamp" : "1746469732094",
+    "key" : "2nwo5",
     "mapWidth" : "640",
     "mapHeight" : "360"
   }).render();`);
@@ -103,9 +103,9 @@ const Location = () => {
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>
-        대구 수성구 두산동 888-2번지
+        서울 송파구 법원로 101
         <br />
-        호텔수성 수성스퀘어 3층 피오니홀
+        서울동부지방법원 동백홀
         <br />
         <br />
         <Title>버스 이용시</Title>
