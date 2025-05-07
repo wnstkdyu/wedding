@@ -1,7 +1,7 @@
 export const WEDDING_INVITATION_URL = "http://localhost:8000/";
 export const KAKAOTALK_API_TOKEN = "8536d1e2947e4e0e77c923e0915e1b17";
 export const KAKAOTALK_SHARE_IMAGE =
-  "https://github.com/user-attachments/assets/c7aa8a01-d4ef-43f4-9a90-b0367160273e";
+  "https://wnstkdyu.github.io/wedding/assets/opg.JPG";
 
 export const WEDDING_DATE = "2025년 09월 21일, 일요일 오전 11시 30분";
 export const WEDDING_LOCATION = "서울동부지방법원, 3층 동백홀";
