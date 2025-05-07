@@ -43,25 +43,22 @@ const NavButton = styled.a`
 `;
 
 export default function NavigationButtons({ lat, lng }) {
-  const kakao = `kakaomap://route?sp=${lat},${lng}&ep=${lat},${lng}&by=CAR`;
-  const naver = `nmap://route/public?dlat=${lat}&dlng=${lng}`;
-  const tmap  = `tmap://route?goalname=웨딩홀&goalx=${lng}&goaly=${lat}`;
+  const kakao = `kakaomap://look?p=${lat},${lng}`;
+  const naver = `nmap://place?lat=${lat}&lng=${lng}&name=%EC%84%9C%EC%9A%B8%EB%8F%99%EB%B6%80%EC%A7%80%EB%B0%A9%EB%B2%95%EC%9B%90`;
+  const tmap  = `tmap://search?name=서울동부지방법원`;
 
   return (
     <Wrapper>
       <NavButton href={naver} brand="naver">
         <img src={NaverIcon} alt="" aria-hidden="true" />
-        네이버 지도
       </NavButton>
 
       <NavButton href={kakao} brand="kakao">
         <img src={KakaoIcon} alt="" aria-hidden="true" />
-        카카오맵
       </NavButton>
 
       <NavButton href={tmap} brand="tmap">
         <img src={TmapIcon} alt="" aria-hidden="true" />
-        티맵
       </NavButton>
     </Wrapper>
   );
