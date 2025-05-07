@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Divider } from "antd";
 import styled from "styled-components";
+import NavigationButtons from "./NavigationButtons";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -40,6 +41,8 @@ const Map = styled.div`
 `;
 
 const Location = () => {
+  const LAT = 37.484113;
+  const LNG = 127.120135;
   // 카카오 맵 불러오기
 
   // <!-- 3. 실행 스크립트 -->
@@ -100,6 +103,9 @@ const Location = () => {
         id="daumRoughmapContainer1746470118188"
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
+      <NavigationButtons
+        lat={LAT} lng={LNG}
+      ></NavigationButtons>
       <Content>
         서울 송파구 법원로 101
         <br />
