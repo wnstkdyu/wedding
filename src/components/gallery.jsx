@@ -60,7 +60,8 @@ const Gallery = () => {
       </Divider>
       <ImageGallery
         showPlayButton={false}
-        showFullscreenButton={false}
+        showFullscreenButton={true}
+        useBrowserFullscreen={false}
         items={images}
       />
     </Wrapper>

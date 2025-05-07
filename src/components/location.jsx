@@ -30,8 +30,6 @@ const Content = styled.p`
   opacity: 0.75;
   width: 100%;
   text-align: center;
-  padding-top: 42px;
-  padding-bottom: 42px;
   margin: 0;
 `;
 
@@ -106,23 +104,31 @@ const Location = () => {
       <NavigationButtons
         lat={LAT} lng={LNG}
       ></NavigationButtons>
-      <Content>
+      <Content> 
         서울 송파구 법원로 101
         <br />
         서울동부지방법원 동백홀
         <br />
         <br />
-        <Title>버스 안내</Title>
+        <Title>버스 이용시</Title>
         <br />
-        문정법조단지, 건영아파트 하차(도보 10분)
+        서울동부지방법원 앞 건영아파트 정류장 하차(도보 10분)
+        <br /> 
+        - 일반버스(녹색) : 30, 31, 32, 119, 331
+        <br />
+        - 간선버스(청색) : 302, 303, 320, 333, 343, 345, 350, 360
+        <br />
+        - 지선버스(녹색) : 3322, 3420
+        <br />
+        - 직행 및 광역버스(적색) : 500-1, 1009, 1112, 1117, 1650, 3302, 9403
+        <br />
+        <Title>지하철 이용시 </Title>
+        <br />
+        8호선 문정역 하차 ③번 출구(도보 10분)
         <br />
         <Title>자가용 안내</Title>
         <br />
         법원 지상 주차장 이용 가능합니다.
-        <br />
-        <Title>지하철 안내</Title>
-        <br />
-        8호선 문정역 3번 출구(도보 10분)
         <br />
         <Title>예식장 출입</Title>
         <br />
