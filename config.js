@@ -3,8 +3,9 @@ export const KAKAOTALK_API_TOKEN = "8536d1e2947e4e0e77c923e0915e1b17";
 export const KAKAOTALK_SHARE_IMAGE =
   "https://wnstkdyu.github.io/wedding/src/assets/og.JPG";
 
-export const WEDDING_DATE = "2025년 09월 21일, 일요일 오전 11시 30분";
-export const WEDDING_LOCATION = "서울동부지방법원, 3층 동백홀";
+export const WEDDING_DATE = "2025년 09월 21일";
+export const WEDDING_TIME = "일요일 오전 11시 30분"
+export const WEDDING_LOCATION = "서울동부지방법원 3층 동백홀";
 
 export const GROOM_NAME = "유준상";
 export const GROOM_ACCOUNT_NUMBER = "하나은행 911-910182-84107";

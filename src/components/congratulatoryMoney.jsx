@@ -3,7 +3,6 @@ import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
 import styled from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
-import Flower from "../assets/flower3.png";
 import {
   GROOM_NAME,
   GROOM_ACCOUNT_NUMBER,
@@ -89,7 +88,6 @@ const CongratulatoryMoney = () => {
       >
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
-      <Image src={Flower} />
       <Content data-aos="fade-up">
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
@@ -188,7 +186,7 @@ const CongratulatoryMoney = () => {
           </CopyToClipboard>
         </div>
         <div style={{ marginTop: 24, marginBottom: 24 }}>
-          <b>모 :{BRIDE_MOTHER_NAME}</b>
+          <b>모 : {BRIDE_MOTHER_NAME}</b>
           <Divider type="vertical" />
           <CopyToClipboard text={BRIDE_MOTHER_ACCOUNT_NUMBER}>
             <Button
