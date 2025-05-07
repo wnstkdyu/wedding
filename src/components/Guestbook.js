@@ -5,7 +5,8 @@ import styled from "styled-components";
 const Section = styled.section`
   max-width: 680px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  /* 좌·우 padding을 화면 너비에 따라 조정: 최소 1rem, 최대 2rem */
+  padding: 3rem clamp(1rem, 5vw, 2rem);
 `;
 
 const Heading = styled.h2`
@@ -20,11 +21,17 @@ const Form = styled.form`
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 2.5rem;
+  /* 모바일에서 버튼이 옆으로 밀리지 않도록 전체 폭 강제 */
+  width: 100%;
 `;
 
 const Input = styled.input`
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
+  /* 핵심: 전체 폭 + border-box 로 패딩·테두리 포함 */
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0.65rem 0.9rem;
+  font-size: 1rem;              /* 16 px → iOS 확대 방지 */
   border: 1px solid #d7ccc8;
   border-radius: 0.5rem;
 
@@ -36,10 +43,13 @@ const Input = styled.input`
 `;
 
 const Textarea = styled.textarea`
+  width: 100%;
+  box-sizing: border-box;
+
   min-height: 110px;
   resize: vertical;
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 1rem;
   border: 1px solid #d7ccc8;
   border-radius: 0.5rem;
 
@@ -50,12 +60,16 @@ const Textarea = styled.textarea`
   }
 `;
 
+
 const Button = styled.button`
-  align-self: end;
+  /* 작은 화면에서도 줄 바꿈 없이 우측 정렬 */
+  align-self: flex-end;
+  margin-top: 0.25rem;
+
   background: #d97d83;
   color: #fff;
   font-weight: 600;
-  padding: 0.65rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
