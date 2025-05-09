@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Divider } from "antd";
 import styled from "styled-components";
 import NavigationButtons from "./NavigationButtons";
+import HighlightTitle from "../../common-components"
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -15,13 +16,6 @@ const Title = styled.span`
   font-weight: bold;
   opacity: 0.85;
   margin-bottom: 0;
-`;
-
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
 `;
 
 const Content = styled.p`
@@ -94,8 +88,8 @@ const Location = () => {
 
   return (
     <Wrapper>
-      <Divider plain style={{ marginTop: 0, marginBottom: 32 }}>
-        <Title>오시는 길</Title>
+      <Divider style={{ marginTop: 0, marginBottom: 32 }} plain>
+        <HighlightTitle>오시는 길</HighlightTitle>
       </Divider>
       <Map
         id="daumRoughmapContainer1746470118188"

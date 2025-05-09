@@ -17,6 +17,7 @@ import {
   BRIDE_MOTHER_NAME,
   BRIDE_MOTHER_ACCOUNT_NUMBER,
 } from "../../config";
+import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -24,14 +25,6 @@ const Wrapper = styled.div`
   width: 70%;
   margin: 0 auto;
   text-align: center;
-`;
-
-const Title = styled.p`
-  font-size: 1rem;
-  color: var(--title-color);
-  font-weight: bold;
-  opacity: 0.85;
-  margin-bottom: 0;
 `;
 
 const Content = styled.p`
@@ -68,13 +61,6 @@ const ContactButton = styled.div`
   padding: 2.188rem 0;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
-`;
-
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
@@ -86,7 +72,7 @@ const CongratulatoryMoney = () => {
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >
-        <Title>축하의 마음을 전하세요</Title>
+        <HighlightTitle>축하의 마음을 전하세요</HighlightTitle>
       </Divider>
       <Content data-aos="fade-up">
         축하의 마음을 담아 축의금을 전달해 보세요.

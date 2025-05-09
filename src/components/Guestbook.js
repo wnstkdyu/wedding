@@ -1,5 +1,7 @@
+import { Divider } from "antd";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import HighlightTitle from "../../common-components";
 
 /* ---------- 스타일 ---------- */
 const Section = styled.section`
@@ -131,7 +133,13 @@ export default function Guestbook() {
 
   return (
     <Section id="guestbook">
-      <Heading data-aos="fade-up">방명록</Heading>
+      <Divider
+        data-aos="fade-up"
+        plain
+        style={{ marginTop: 0, marginBottom: 32 }}
+      >
+        <HighlightTitle>방명록</HighlightTitle>
+      </Divider>
 
       <Form onSubmit={handleSubmit} data-aos="fade-up">
         <Input

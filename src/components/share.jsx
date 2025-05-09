@@ -11,19 +11,12 @@ import {
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config";
+import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
   padding-top: 42px;
   width: 100%;
   text-align: center;
-`;
-
-const Title = styled.span`
-  font-size: 1rem;
-  color: var(--title-color);
-  font-weight: bold;
-  opacity: 0.85;
-  margin-bottom: 0;
 `;
 
 const KakaoTalkShareButton = styled(Button)`
@@ -106,7 +99,7 @@ const Share = () => {
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >
-        <Title>청첩장 공유하기</Title>
+        <HighlightTitle>청첩장 공유하기</HighlightTitle>
       </Divider>
       <KakaoTalkShareButton
         style={{ margin: 0 }}

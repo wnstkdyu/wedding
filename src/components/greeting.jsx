@@ -9,6 +9,7 @@ import {
   BRIDE_FATHER_NAME,
   BRIDE_MOTHER_NAME,
 } from "../../config";
+import HighlightTitle from "../../common-components"
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -16,13 +17,44 @@ const Wrapper = styled.div`
   width: 70%;
 `;
 
-const Title = styled.p`
-  font-size: 1rem;
-  color: var(--title-color);
-  font-weight: bold;
-  opacity: 0.85;
-  margin-bottom: 0;
+/* ───────── 괄호 안 시(詩) 부분 ───────── */
+const QuoteBlock = styled.div`
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.75;
   text-align: center;
+  margin: 0 auto 2.5rem;
+  max-width: 320px;
+
+  &::before,
+  &::after {                  /* 좌·우 곡선 괄호 */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 999px;
+    background:rgb(205, 227, 172);      /* 연녹색 */
+  }
+  &::before { left: -14px; }
+  &::after  { right: -14px; }
+`;
+
+const QuoteAuthor = styled.p`
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  color: #6d6d6d;
+`;
+
+/* ───────── 이름 라인 강조 ───────── */
+const ParentsLine = styled.p`
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0.4rem 0;
+
+  strong { font-weight: 700; }     /* 이름만 굵게 */
 `;
 
 const Content = styled.p`
@@ -43,41 +75,48 @@ const GroomBride = styled.p`
   text-align: center;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
-`;
-
 const Greeting = () => {
   return (
     <Wrapper>
-      <Divider style={{ marginTop: 32, marginBottom: 32 }} plain>
-        <Title data-aos="fade-up">초대합니다</Title>
+      {/* heading */}
+      <Divider style={{ marginTop: 0, marginBottom: 32 }} plain>
+        <HighlightTitle>모시는 글</HighlightTitle>
       </Divider>
+
+      {/* (1) 시(詩) 인용 */}
+      <QuoteBlock data-aos="fade-up">
+        네 앞에 놓여진 세상의 짐을 대신<br />
+        다 짊어질 수 없을지는 몰라도<br />
+        둘이서 함께라면 나눌 수가 있을까<br />
+        그럴 수 있을까
+        <QuoteAuthor>– 김동률, 「동행」 –</QuoteAuthor>
+      </QuoteBlock>
+
+      {/* (2) 본문 메시지 */}
       <Content data-aos="fade-up">
-        서로 마주 보며 다져온 사랑을
+        같이 있으면 세상에서 가장 편안한 사람,<br />
+        기쁨도 슬픔도 모두 나누고픈 사람과<br />
+        서로에게 기대어 평생을 약속하고자 합니다.
         <br />
         <br />
-        이제 함께 한곳을 바라보며 걸어갈 수 있는
-        <br />
-        <br />
-        큰 사랑으로 키우고자 합니다.
-        <br />
-        <br />
-        저희 두 사람이 사랑의 이름으로 지켜나갈 수 있게
-        <br />
-        <br />
-        앞날을 축복해 주시면 감사하겠습니다.
+        저희의 동행이 새롭게 시작되는 자리에<br />
+        떨리는 마음으로 소중한 분들을 모십니다.
       </Content>
-      <GroomBride data-aos="fade-up">
-        {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 {GROOM_NAME}
-        <br />
-        {BRIDE_FATHER_NAME} · {BRIDE_MOTHER_NAME}의 장녀 {BRIDE_NAME}
-      </GroomBride>
+
+      {/* (3) 신랑·신부 가족 라인 */}
+      <ParentsLine data-aos="fade-up">
+        <strong>{GROOM_FATHER_NAME}</strong> ·{" "}
+        <strong>{GROOM_MOTHER_NAME}</strong> 의 장남&nbsp;
+        <strong>{GROOM_NAME}</strong>
+      </ParentsLine>
+      <ParentsLine data-aos="fade-up">
+        <strong>{BRIDE_FATHER_NAME}</strong> ·{" "}
+        <strong>{BRIDE_MOTHER_NAME}</strong> 의 장녀&nbsp;
+        <strong>{BRIDE_NAME}</strong>
+      </ParentsLine>
     </Wrapper>
   );
 };
+
 
 export default Greeting;

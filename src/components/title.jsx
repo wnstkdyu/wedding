@@ -7,8 +7,7 @@ import {
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config.js";
-import BackgroundVideo from "../assets/BackgroundVideo.mp4";
-import GroovePaper from "../assets/GroovePaper.png";
+import TitleImage from "../assets/Title.jpg"
 
 const Layout = styled.div`
   width: 70%;
@@ -28,21 +27,23 @@ const TitleWrapper = styled.div`
   -o-animation: fadein 3s; /* Opera */
 `;
 
-const VideoBackground = styled.video`
-  width: 100%;
-`;
-
 const WeddingInvitation = styled.p`
-  font-size: 0.825rem;
-  opacity: 0.45;
+  font-size: 1.6rem;
+  font-weight: semi-bold;
   margin-bottom: 16px;
 `;
 
 const GroomBride = styled.p`
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: medium;
   opacity: 0.9;
   margin-bottom: 16px;
+`;
+
+const ImageBanner = styled.img`
+  width: 100%;
+  display: block;
+  object-fit: cover;
 `;
 
 const Schedule = styled.p`
@@ -54,7 +55,7 @@ const Title = () => {
   return (
     <Layout>
       <TitleWrapper>
-        <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
+        <WeddingInvitation>마침내, 결혼합니다!</WeddingInvitation>
         <GroomBride>
           {GROOM_NAME} &#38; {BRIDE_NAME}
         </GroomBride>
@@ -66,9 +67,7 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      <VideoBackground autoPlay loop muted playsInline={true}>
-        <source src={BackgroundVideo} type="video/mp4" />
-      </VideoBackground>
+      <ImageBanner src={TitleImage} alt="웨딩 사진" />
     </Layout>
   );
 };
