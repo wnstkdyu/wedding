@@ -1,7 +1,7 @@
 export const WEDDING_INVITATION_URL = "https://junsang-jeonghyun-wedding.netlify.app/";
 export const KAKAOTALK_API_TOKEN = "8536d1e2947e4e0e77c923e0915e1b17";
 export const KAKAOTALK_SHARE_IMAGE =
-  "https://wnstkdyu.github.io/wedding/src/assets/og.JPG";
+  "https://wnstkdyu.github.io/wedding/src/assets/Title.jpg";
 
 export const WEDDING_DATE = "2025년 9월 21일 일요일";
 export const WEDDING_TIME = "오전 11시 30분"

@@ -53,7 +53,7 @@ const IndexPage = () => {
         <meta property="og:type"        content="website" />
         <meta property="og:title"       content="유준상❤김정현 결혼식에 초대합니다" />
         <meta property="og:description" content="2025년 9월 21일(일) 11:30 서울동부지방법원 3층 동백홀" />
-        <meta property="og:image"       content="https://wnstkdyu.github.io/wedding/src/assets/og.JPG" />
+        <meta property="og:image"       content="https://wnstkdyu.github.io/wedding/src/assets/Title.jpg" />
         <meta property="og:url"         content="https://junsang-jeonghyun-wedding.netlify.app/" />
       </Helmet>
       <Wrapper>
