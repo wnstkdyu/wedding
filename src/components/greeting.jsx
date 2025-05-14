@@ -49,7 +49,7 @@ const QuoteAuthor = styled.p`
 
 /* ───────── 이름 라인 강조 ───────── */
 const ParentsLine = styled.p`
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.6;
   text-align: center;
   margin: 0.4rem 0;
@@ -59,9 +59,10 @@ const ParentsLine = styled.p`
 
 const Content = styled.p`
   font-size: 0.9rem;
-  line-height: 1.4;
+  line-height: 1.6;      /* 행간 */
+  letter-spacing: 0.08em;/* 자간: 0.04×글자크기 ≈ 0.6 px */
   opacity: 0.75;
-  margin-bottom: 16px;
+  margin-bottom: 40px;
   width: 100%;
   text-align: center;
 `;
@@ -106,13 +107,13 @@ const Greeting = () => {
       {/* (3) 신랑·신부 가족 라인 */}
       <ParentsLine data-aos="fade-up">
         <strong>{GROOM_FATHER_NAME}</strong> ·{" "}
-        <strong>{GROOM_MOTHER_NAME}</strong> 의 장남&nbsp;
-        <strong>{GROOM_NAME}</strong>
+        <strong>{GROOM_MOTHER_NAME}</strong> 의 장남&nbsp; 
+        <strong> 준상</strong>
       </ParentsLine>
       <ParentsLine data-aos="fade-up">
         <strong>{BRIDE_FATHER_NAME}</strong> ·{" "}
-        <strong>{BRIDE_MOTHER_NAME}</strong> 의 장녀&nbsp;
-        <strong>{BRIDE_NAME}</strong>
+        <strong>{BRIDE_MOTHER_NAME}</strong> 의 장녀&nbsp; 
+        <strong> 정현</strong>
       </ParentsLine>
     </Wrapper>
   );

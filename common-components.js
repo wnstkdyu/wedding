@@ -4,6 +4,7 @@ const HighlightTitle = styled.span`
   position: relative;
   font-size: 1rem;
   font-weight: bold;
+  letter-spacing: 0.1em;/* 자간: 0.04×글자크기 ≈ 0.6 px */
   color: var(--title-color);
   opacity: 0.85;
 
