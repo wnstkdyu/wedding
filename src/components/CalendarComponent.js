@@ -62,7 +62,7 @@ const CalendarWrapper = styled.div`
 
   .bold-day {
     font-weight: bold;
-    color:rgb(218, 136, 176);
+    color:rgb(199, 119, 119);
   }
 
   .add-button {
@@ -72,6 +72,33 @@ const CalendarWrapper = styled.div`
 
 const CalendarComponent = () => {
   const weddingDate = new Date(2025, 8, 21); // 9월 21일
+
+  const handleDownloadICS = () => {
+    const startDate = "20250921T113000"; // 11:30 KST
+    const endDate = "20250921T130000";   // 13:00 KST
+
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//유준상❤김정현 결혼식//EN
+BEGIN:VEVENT
+UID:${Date.now()}@wedding-invitation
+DTSTAMP:${startDate}
+DTSTART;TZID=Asia/Seoul:${startDate}
+DTEND;TZID=Asia/Seoul:${endDate}
+SUMMARY:유준상❤김정현 결혼식
+LOCATION:서울동부지방법원 3층 동백홀
+DESCRIPTION:유준상❤김정현 결혼식에 초대합니다.
+END:VEVENT
+END:VCALENDAR
+    `.trim();
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "wedding-invitation.ics";
+    link.click();
+  };
 
   return (
     <Wrapper>
@@ -85,12 +112,13 @@ const CalendarComponent = () => {
           calendarType="gregory"
           locale="en-US"
           showNavigation={false}
-          activeStartDate={new Date(2025, 8, 1)} // 9월 고정
+          activeStartDate={new Date(2025, 8, 1)}
           maxDetail="month"
+          showNeighboringMonth={false} // 👉 이전/다음 달 날짜 제거
           tileDisabled={({ date }) =>
             date.toDateString() !== weddingDate.toDateString()
           }
-          formatDay={(locale, date) => date.getDate()} // '일' 제거
+          formatDay={(locale, date) => date.getDate()}
           tileClassName={({ date, view }) => {
             if (
               view === "month" &&
@@ -106,16 +134,9 @@ const CalendarComponent = () => {
         <Button
           type="default"
           className="add-button"
-          onClick={() =>
-            window.open(
-              encodeURI(
-                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=유준상❤김정현 결혼식&dates=20250921T023000Z/20250921T040000Z&details=서울동부지방법원 3층 동백홀에서 진행됩니다.&location=서울동부지방법원`
-              ),
-              "_blank"
-            )
-          }
+          onClick={handleDownloadICS}
         >
-          📅 캘린더에 추가하기
+          📥 캘린더에 추가하기
         </Button>
       </CalendarWrapper>
     </Wrapper>
