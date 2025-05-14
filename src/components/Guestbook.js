@@ -134,7 +134,6 @@ export default function Guestbook() {
   return (
     <Section id="guestbook">
       <Divider
-        data-aos="fade-up"
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >

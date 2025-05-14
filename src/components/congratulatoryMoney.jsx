@@ -68,18 +68,17 @@ const CongratulatoryMoney = () => {
   return (
     <Wrapper>
       <Divider
-        data-aos="fade-up"
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >
         <HighlightTitle>축하의 마음을 전하세요</HighlightTitle>
       </Divider>
-      <Content data-aos="fade-up">
+      <Content>
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
 
       <ButtonWrap>
-        <ContactButton data-aos="fade-up" onClick={() => setGroomVisible(true)}>
+        <ContactButton onClick={() => setGroomVisible(true)}>
           <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#829fe0"
@@ -87,7 +86,7 @@ const CongratulatoryMoney = () => {
           <br />
           <SubContent>신랑측 계좌번호 확인</SubContent>
         </ContactButton>
-        <ContactButton data-aos="fade-up" onClick={() => setBrideVisible(true)}>
+        <ContactButton onClick={() => setBrideVisible(true)}>
           <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#fe7daf"

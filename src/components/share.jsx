@@ -95,7 +95,6 @@ const Share = () => {
   return (
     <Wrapper>
       <Divider
-        data-aos="fade-up"
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >

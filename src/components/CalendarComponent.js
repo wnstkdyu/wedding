@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Divider, Button } from "antd";
 import Calendar from "react-calendar";
 import styled from "styled-components";
@@ -62,7 +62,7 @@ const CalendarWrapper = styled.div`
 
   .bold-day {
     font-weight: bold;
-    color:rgb(199, 119, 119);
+    color:rgb(219, 130, 130);
   }
 
   .add-button {
@@ -70,13 +70,61 @@ const CalendarWrapper = styled.div`
   }
 `;
 
+const CountdownWrapper = styled.div`
+  text-align: center;
+  margin-top: 32px;
+`;
+
+const TimeBoxContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+`;
+
+const TimeBox = styled.div`
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 8px 12px;
+  min-width: 60px;
+`;
+
+const TimeLabel = styled.div`
+  font-size: 0.7rem;
+  color: #999;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+`;
+
+const TimeValue = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+`;
+
+const Message = styled.div`
+  font-size: 0.9rem;
+  color: #333;
+
+  span {
+    color: red;
+    font-weight: bold;
+  }
+`;
+
 const CalendarComponent = () => {
   const weddingDate = new Date(2025, 8, 21); // 9월 21일
+  const [timeLeft, setTimeLeft] = useState(getTimeDiff(weddingDate));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(getTimeDiff(weddingDate));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleDownloadICS = () => {
-    const startDate = "20250921T113000"; // 11:30 KST
-    const endDate = "20250921T130000";   // 13:00 KST
-
+    const startDate = "20250921T113000";
+    const endDate = "20250921T130000";
     const icsContent = `
 BEGIN:VCALENDAR
 VERSION:2.0
@@ -91,8 +139,7 @@ LOCATION:서울동부지방법원 3층 동백홀
 DESCRIPTION:유준상❤김정현 결혼식에 초대합니다.
 END:VEVENT
 END:VCALENDAR
-    `.trim();
-
+`.trim();
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -114,7 +161,7 @@ END:VCALENDAR
           showNavigation={false}
           activeStartDate={new Date(2025, 8, 1)}
           maxDetail="month"
-          showNeighboringMonth={false} // 👉 이전/다음 달 날짜 제거
+          showNeighboringMonth={false}
           tileDisabled={({ date }) =>
             date.toDateString() !== weddingDate.toDateString()
           }
@@ -138,9 +185,56 @@ END:VCALENDAR
         >
           📥 캘린더에 추가하기
         </Button>
+        <CountdownWrapper>
+          <TimeBoxContainer>
+            <TimeBox>
+              <TimeLabel>Days</TimeLabel>
+              <TimeValue>{timeLeft.days}</TimeValue>
+            </TimeBox>
+            <TimeBox>
+              <TimeLabel>Hour</TimeLabel>
+              <TimeValue>{timeLeft.hours}</TimeValue>
+            </TimeBox>
+            <TimeBox>
+              <TimeLabel>Min</TimeLabel>
+              <TimeValue>{timeLeft.minutes}</TimeValue>
+            </TimeBox>
+            <TimeBox>
+              <TimeLabel>Sec</TimeLabel>
+              <TimeValue>{timeLeft.seconds}</TimeValue>
+            </TimeBox>
+          </TimeBoxContainer>
+          <Message>
+            유준상 ❤️ 김정현의 결혼식이 <span>{timeLeft.totalDays}</span>일 남았습니다
+          </Message>
+        </CountdownWrapper>
       </CalendarWrapper>
     </Wrapper>
   );
 };
+
+function getTimeDiff(targetDate) {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+  const totalDays = Math.floor(totalSeconds / (60 * 60 * 24));
+  const days = totalDays;
+  const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return {
+    days,
+    hours: pad(hours),
+    minutes: pad(minutes),
+    seconds: pad(seconds),
+    totalDays,
+  };
+}
+
+function pad(num) {
+  return num.toString().padStart(2, "0");
+}
 
 export default CalendarComponent;
