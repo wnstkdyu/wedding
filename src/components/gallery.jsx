@@ -3,9 +3,9 @@ import ImageGallery from "react-image-gallery";
 import { Divider } from "antd";
 import styled from "styled-components";
 
-import photo1 from "../assets/photo1.jpg"
-import photo2 from "../assets/photo2.jpg"
-import photo3 from "../assets/photo3.jpg"
+import photo1 from "../assets/photo_1.jpg"
+import photo2 from "../assets/photo_2.jpg"
+import photo3 from "../assets/photo_3.jpg"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
