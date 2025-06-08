@@ -3,12 +3,9 @@ import ImageGallery from "react-image-gallery";
 import { Divider } from "antd";
 import styled from "styled-components";
 
-import photo1 from "../assets/photo1.JPG"
-import GalleryPhoto1 from "../assets/Gallery_Photo_1.webp";
-import GalleryPhoto2 from "../assets/Gallery_Photo_2.webp";
-import GalleryPhoto3 from "../assets/Gallery_Photo_3.webp";
-import GalleryPhoto4 from "../assets/Gallery_Photo_4.webp";
-import GalleryPhoto5 from "../assets/Gallery_Photo_5.webp";
+import photo1 from "../assets/photo1.jpg"
+import photo2 from "../assets/photo2.jpg"
+import photo3 from "../assets/photo3.jpg"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -23,25 +20,13 @@ const images = [
     thumbnail: photo1
   },
   {
-    original: GalleryPhoto1,
-    thumbnail: GalleryPhoto1,
+    original: photo2,
+    thumbnail: photo2
   },
   {
-    original: GalleryPhoto2,
-    thumbnail: GalleryPhoto2,
+    original: photo3,
+    thumbnail: photo3
   },
-  {
-    original: GalleryPhoto3,
-    thumbnail: GalleryPhoto3,
-  },
-  {
-    original: GalleryPhoto4,
-    thumbnail: GalleryPhoto4,
-  },
-  {
-    original: GalleryPhoto5,
-    thumbnail: GalleryPhoto5,
-  }
 ];
 
 const Gallery = () => {
