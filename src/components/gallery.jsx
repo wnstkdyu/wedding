@@ -3,12 +3,12 @@ import ImageGallery from "react-image-gallery";
 import { Divider } from "antd";
 import styled from "styled-components";
 
+import photo1 from "../assets/photo1.JPG"
 import GalleryPhoto1 from "../assets/Gallery_Photo_1.webp";
 import GalleryPhoto2 from "../assets/Gallery_Photo_2.webp";
 import GalleryPhoto3 from "../assets/Gallery_Photo_3.webp";
 import GalleryPhoto4 from "../assets/Gallery_Photo_4.webp";
 import GalleryPhoto5 from "../assets/Gallery_Photo_5.webp";
-import GalleryPhoto6 from "../assets/Gallery_Photo_6.webp";
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -18,6 +18,10 @@ const Wrapper = styled.div`
 `;
 
 const images = [
+  {
+    original: photo1,
+    thumbnail: photo1
+  },
   {
     original: GalleryPhoto1,
     thumbnail: GalleryPhoto1,
@@ -37,11 +41,7 @@ const images = [
   {
     original: GalleryPhoto5,
     thumbnail: GalleryPhoto5,
-  },
-  {
-    original: GalleryPhoto6,
-    thumbnail: GalleryPhoto6,
-  },
+  }
 ];
 
 const Gallery = () => {
