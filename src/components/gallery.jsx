@@ -6,6 +6,9 @@ import styled from "styled-components";
 import photo1 from "../assets/photo_1.jpg"
 import photo2 from "../assets/photo_2.jpg"
 import photo3 from "../assets/photo_3.jpg"
+import photo4 from "../assets/photo_4.jpg"
+import photo5 from "../assets/photo_5.jpg"
+import photo6 from "../assets/photo_6.jpg"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -26,6 +29,18 @@ const images = [
   {
     original: photo3,
     thumbnail: photo3
+  },
+  {
+    original: photo4,
+    thumbnail: photo4
+  },
+  {
+    original: photo5,
+    thumbnail: photo5
+  },
+  {
+    original: photo6,
+    thumbnail: photo6
   },
 ];
 
