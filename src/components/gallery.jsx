@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import { Divider } from "antd";
 import styled from "styled-components";
@@ -18,29 +18,6 @@ const Wrapper = styled.div`
   width: 70%;
   margin: 0 auto;
 `;
-
-const customRenderItem = (item) => (
-  <div
-    style={{
-      width: '100%',
-      height: '400px', // 원하는 고정 높이
-      backgroundColor: '#efebe9', // 레터박스 느낌을 위해
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-  >
-    <img
-      src={item.original}
-      alt={item.originalAlt}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain', // 비율 유지하며 내부에 맞춤
-      }}
-    />
-  </div>
-);
 
 const images = [
   {
@@ -78,6 +55,47 @@ const images = [
 ];
 
 const Gallery = () => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const fullscreen = document
+        ?.querySelector('.image-gallery-content')
+        ?.classList.contains('fullscreen');
+      setIsFullscreen(fullscreen);
+    });
+
+    const target = document.querySelector('.image-gallery-content');
+    if (target) {
+      observer.observe(target, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const customRenderItem = (item) => (
+    <div
+      style={{
+        width: '100%',
+        height: '400px',
+        backgroundColor: isFullscreen ? 'black' : '#efebe9',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <img
+        src={item.original}
+        alt={item.originalAlt}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+        }}
+      />
+    </div>
+  );
+
   return (
     <Wrapper>
       <Divider style={{ marginTop: 0, marginBottom: 32 }} plain>
