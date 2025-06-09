@@ -42,8 +42,14 @@ const GroomBride = styled.p`
 
 const ImageBanner = styled.img`
   width: 100%;
+  max-width: 600px;
   display: block;
   object-fit: cover;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const Schedule = styled.p`
