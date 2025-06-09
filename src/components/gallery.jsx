@@ -24,7 +24,7 @@ const customRenderItem = (item) => (
     style={{
       width: '100%',
       height: '400px', // 원하는 고정 높이
-      backgroundColor: 'black', // 레터박스 느낌을 위해
+      backgroundColor: '#efebe9', // 레터박스 느낌을 위해
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
