@@ -11,6 +11,10 @@ import photo5 from "../assets/photo_5.jpg"
 import photo6 from "../assets/photo_6.jpg"
 import photo7 from "../assets/photo_7.jpg"
 import photo8 from "../assets/photo_8.jpg"
+import photo9 from "../assets/photo_9.jpg"
+import photo10 from "../assets/photo_10.jpg"
+import photo11 from "../assets/photo_11.jpg"
+import photo12 from "../assets/photo_12.jpg"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -52,6 +56,22 @@ const images = [
     original: photo8,
     thumbnail: photo8
   },
+  {
+    original: photo9,
+    thumbnail: photo9
+  },
+  {
+    original: photo10,
+    thumbnail: photo10
+  },
+  {
+    original: photo11,
+    thumbnail: photo11
+  },
+  {
+    original: photo12,
+    thumbnail: photo12
+  }
 ];
 
 const Gallery = () => {
