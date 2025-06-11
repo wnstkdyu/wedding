@@ -55,12 +55,21 @@ const IndexPage = () => {
       audio.play().catch(() => {
         // 실패할 수도 있음
       });
+
+      // 한 번만 실행되도록 모든 이벤트 제거
+      document.removeEventListener("click", startAudio);
+      document.removeEventListener("touchstart", startAudio);
+      document.removeEventListener("scroll", startAudio);
     };
   
     document.addEventListener("click", startAudio, { once: true });
+    document.addEventListener("touchstart", startAudio, { once: true });
+    document.addEventListener("scroll", startAudio, { once: true });
   
     return () => {
       document.removeEventListener("click", startAudio);
+      document.removeEventListener("touchstart", startAudio);
+      document.removeEventListener("scroll", startAudio);
       audio.pause();
     };
   }, []);
