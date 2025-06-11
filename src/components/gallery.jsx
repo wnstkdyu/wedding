@@ -97,7 +97,7 @@ const Gallery = () => {
     <div
       style={{
         width: '100%',
-        height: '400px',
+        height: '600px',
         backgroundColor: isFullscreen ? 'black' : '#efebe9',
         display: 'flex',
         justifyContent: 'center',
