@@ -40,12 +40,7 @@ const images = [
 
 const Gallery = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [deviceType, setDeviceType] = useState(() => {
-    const width = window.innerWidth;
-    if (width < 768) return "mobile";
-    if (width < 1024) return "tablet";
-    return "desktop";
-  });
+  const [deviceType, setDeviceType] = useState(`mobile`); // 초기값은 'mobile'
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -70,6 +65,10 @@ const Gallery = () => {
       else setDeviceType("desktop");
     };
 
+    // 최초 실행
+    handleResize();
+
+    // 이벤트 등록
     window.addEventListener("resize", handleResize);
 
     return () => {
