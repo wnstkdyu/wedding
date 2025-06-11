@@ -46,6 +46,25 @@ const IndexPage = () => {
       duration: 1500,
     });
   });
+
+  useEffect(() => {
+    const audio = new Audio(Song);
+  
+    const startAudio = () => {
+      audio.loop = true;
+      audio.play().catch(() => {
+        // 실패할 수도 있음
+      });
+    };
+  
+    document.addEventListener("click", startAudio, { once: true });
+  
+    return () => {
+      document.removeEventListener("click", startAudio);
+      audio.pause();
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -57,9 +76,6 @@ const IndexPage = () => {
         <meta property="og:url"         content="https://junsang-jeonghyun-wedding.netlify.app/" />
       </Helmet>
       <Wrapper>
-        <audio autoPlay loop>
-          <source src={Song} />
-        </audio>
         <Title />
         <Greeting />
         <Gallery />
