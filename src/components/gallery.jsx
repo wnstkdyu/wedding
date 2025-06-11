@@ -24,97 +24,96 @@ const Wrapper = styled.div`
 `;
 
 const images = [
-  {
-    original: photo1,
-    thumbnail: photo1
-  },
-  {
-    original: photo2,
-    thumbnail: photo2
-  },
-  {
-    original: photo3,
-    thumbnail: photo3
-  },
-  {
-    original: photo4,
-    thumbnail: photo4
-  },
-  {
-    original: photo5,
-    thumbnail: photo5
-  },
-  {
-    original: photo6,
-    thumbnail: photo6
-  },
-  {
-    original: photo7,
-    thumbnail: photo7
-  },
-  {
-    original: photo8,
-    thumbnail: photo8
-  },
-  {
-    original: photo9,
-    thumbnail: photo9
-  },
-  {
-    original: photo10,
-    thumbnail: photo10
-  },
-  {
-    original: photo11,
-    thumbnail: photo11
-  },
-  {
-    original: photo12,
-    thumbnail: photo12
-  }
+  { original: photo1, thumbnail: photo1 },
+  { original: photo2, thumbnail: photo2 },
+  { original: photo3, thumbnail: photo3 },
+  { original: photo4, thumbnail: photo4 },
+  { original: photo5, thumbnail: photo5 },
+  { original: photo6, thumbnail: photo6 },
+  { original: photo7, thumbnail: photo7 },
+  { original: photo8, thumbnail: photo8 },
+  { original: photo9, thumbnail: photo9 },
+  { original: photo10, thumbnail: photo10 },
+  { original: photo11, thumbnail: photo11 },
+  { original: photo12, thumbnail: photo12 },
 ];
 
 const Gallery = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [deviceType, setDeviceType] = useState(() => {
+    const width = window.innerWidth;
+    if (width < 768) return "mobile";
+    if (width < 1024) return "tablet";
+    return "desktop";
+  });
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const fullscreen = document
-        ?.querySelector('.image-gallery-content')
-        ?.classList.contains('fullscreen');
+        ?.querySelector(".image-gallery-content")
+        ?.classList.contains("fullscreen");
       setIsFullscreen(fullscreen);
     });
 
-    const target = document.querySelector('.image-gallery-content');
+    const target = document.querySelector(".image-gallery-content");
     if (target) {
-      observer.observe(target, { attributes: true, attributeFilter: ['class'] });
+      observer.observe(target, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
     }
 
-    return () => observer.disconnect();
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) setDeviceType("mobile");
+      else if (width < 1024) setDeviceType("tablet");
+      else setDeviceType("desktop");
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  const customRenderItem = (item) => (
-    <div
-      style={{
-        width: '100%',
-        height: isFullscreen ? '550px': '400px',
-        backgroundColor: isFullscreen ? 'black' : '#efebe9',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <img
-        src={item.original}
-        alt={item.originalAlt}
+  const customRenderItem = (item) => {
+    let height;
+    if (isFullscreen) {
+      height =
+        deviceType === "desktop"
+          ? "800px"
+          : deviceType === "tablet"
+          ? "800px"
+          : "550px";
+    } else {
+      height = "400px";
+    }
+
+    return (
+      <div
         style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
+          width: "100%",
+          height,
+          backgroundColor: isFullscreen ? "black" : "#efebe9",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-      />
-    </div>
-  );
+      >
+        <img
+          src={item.original}
+          alt={item.originalAlt}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+    );
+  };
 
   return (
     <Wrapper>
