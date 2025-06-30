@@ -19,6 +19,24 @@ import photo13 from "../assets/photo_13.jpg"
 import photo14 from "../assets/photo_14.jpg"
 import photo15 from "../assets/photo_15.jpg"
 import photo16 from "../assets/photo_16.jpg"
+import photo17 from "../assets/photo17.jpg"
+import photo18 from "../assets/photo18.jpg"
+import photo19 from "../assets/photo19.jpg"
+import photo20 from "../assets/photo20.jpg"
+import photo21 from "../assets/photo21.jpg"
+import photo22 from "../assets/photo22.jpg"
+import photo23 from "../assets/photo23.jpg"
+import photo24 from "../assets/photo24.jpg"
+import photo25 from "../assets/photo25.jpg"
+import photo26 from "../assets/photo26.jpg"
+import photo27 from "../assets/photo27.jpg"
+import photo28 from "../assets/photo28.jpg"
+import photo29 from "../assets/photo29.jpg"
+import photo30 from "../assets/photo30.jpg"
+import photo31 from "../assets/photo31.jpg"
+import photo32 from "../assets/photo32.jpg"
+import photo33 from "../assets/photo33.jpg"
+import photo34 from "../assets/photo34.jpg"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -44,6 +62,24 @@ const images = [
   { original: photo14, thumbnail: photo14 },
   { original: photo15, thumbnail: photo15 },
   { original: photo16, thumbnail: photo16 },
+  { original: photo17, thumbnail: photo17 },
+  { original: photo18, thumbnail: photo18 },
+  { original: photo19, thumbnail: photo19 },
+  { original: photo20, thumbnail: photo20 },
+  { original: photo21, thumbnail: photo21 },
+  { original: photo22, thumbnail: photo22 },
+  { original: photo23, thumbnail: photo23 },
+  { original: photo24, thumbnail: photo24 },
+  { original: photo25, thumbnail: photo25 },
+  { original: photo26, thumbnail: photo26 },
+  { original: photo27, thumbnail: photo27 },
+  { original: photo28, thumbnail: photo28 },
+  { original: photo29, thumbnail: photo29 },
+  { original: photo30, thumbnail: photo30 },
+  { original: photo31, thumbnail: photo31 },
+  { original: photo32, thumbnail: photo32 },
+  { original: photo33, thumbnail: photo33 },
+  { original: photo34, thumbnail: photo34 },
 ];
 
 const Gallery = () => {
