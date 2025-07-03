@@ -37,6 +37,11 @@ import photo31 from "../assets/photo31.webp"
 import photo32 from "../assets/photo32.webp"
 import photo33 from "../assets/photo33.webp"
 import photo34 from "../assets/photo34.webp"
+import photo35 from "../assets/photo35.webp"
+import photo36 from "../assets/photo36.webp"
+import photo37 from "../assets/photo37.webp"
+import photo38 from "../assets/photo38.webp"
+import photo39 from "../assets/photo39.webp"
 import HighlightTitle from "../../common-components";
 
 const Wrapper = styled.div`
@@ -80,6 +85,11 @@ const images = [
   { original: photo32, thumbnail: photo32 },
   { original: photo33, thumbnail: photo33 },
   { original: photo34, thumbnail: photo34 },
+  { original: photo35, thumbnail: photo35 },
+  { original: photo36, thumbnail: photo36 },
+  { original: photo37, thumbnail: photo37 },
+  { original: photo38, thumbnail: photo38 },
+  { original: photo39, thumbnail: photo39 },
 ];
 
 const Gallery = () => {
